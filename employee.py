@@ -1,10 +1,29 @@
 """Employee module"""
 
+# Third-party imports
+from sqlalchemy import Column
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.types import (
+    Integer,
+    String,
+    Float,
+)
 
-class Employee:
+# Base class for other models to inherit from
+Base = declarative_base()
+
+
+class Employee(Base):
     """Class to represent a single employee"""
 
+    __tablename__ = "employees"
+
     WEEKS_PER_YEAR = 52
+
+    id = Column(Integer, primary_key=True, autoincrement="auto")
+    first_name = Column(String(255), nullable=False)
+    last_name = Column(String(255), nullable=False)
+    weekly_salary = Column(String(2), nullable=False)
 
     def __init__(self, first_name, last_name, weekly_salary):
         """Constructor"""
