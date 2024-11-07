@@ -23,7 +23,7 @@ class Employee(Base):
     id = Column(Integer, primary_key=True, autoincrement="auto")
     first_name = Column(String(255), nullable=False)
     last_name = Column(String(255), nullable=False)
-    weekly_salary = Column(String(2), nullable=False)
+    weekly_salary = Column(Float(2), nullable=False)
 
     def __init__(self, first_name, last_name, weekly_salary):
         """Constructor"""
